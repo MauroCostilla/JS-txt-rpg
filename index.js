@@ -10,37 +10,36 @@ let inventarioProduccion = [1,10,15,20,25,30];
 
 let precioProduccion = [50,100,150,200,250,300];
 
-//Botones del clicker
 
+//Imagen principal
 
+ let clicker = document.getElementById("imagen");
 
-//funcion para que el evento onclick
-
-function comprar(objeto) {
+ clicker.onclick = function(){
+    espiritu++ ;
+    };
  
-    inventario[objeto]++;
-}
+//funcion para que el evento onclick
+  
+    function comprar(objeto) {
+ 
+        inventario[objeto]++;
+    }
+
+
+
+
 
 
 //contador
 
-clicker.onclick = function(){
-    espiritu++ ;
-}
+
 
 
 function render(){
     document.getElementById("contador").innerHTML = espiritu;
     document.getElementById("inventario").innerHTML = inventario;
 }
-
-
-
-
-
-
-
-
 
 
 
