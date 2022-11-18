@@ -1,12 +1,3 @@
-alert ("Bienvenido jugador!");
-
-const nombre = prompt("primero me gustaria saber tu nombre") 
-
-alert ("Bienvenido " + nombre)
-
-alert ("jugar es muy sencillo, empieza dandole click a la imagen y veras como el contador sube, usa tus puntos para comprar mejoras y pruducir mucho mas. Dicho esto, diviertete " + nombre)
-
-
 
 //inventario
 
@@ -19,13 +10,22 @@ let inventarioProduccion = [1,10,15,20,25,30];
 let precioProduccion = [50,100,150,200,250,300];
 
 
+//botones de producción
+
+let prueba1 = document.getElementById("elemento1");
+
+
+prueba1.addEventListener("click",comprar(0))
+
+
+
 //Imagen principal
 
  let clicker = document.getElementById("imagen");
 
  clicker.onclick = function(){
     espiritu++ ;
-    };
+    }
  
 //funcion para  el evento onclick
   
