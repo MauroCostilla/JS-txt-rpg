@@ -32,11 +32,9 @@ const yokai = {
 
 //Imagen principal
 
- //let con dom
+ // DOM
 
- clicker.onclick = function(){
-    espiritu++ ;
-    };
+
  
 //funcion para  el evento onclick
   
