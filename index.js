@@ -28,7 +28,7 @@ const yokai = {
 //botones de produccion
 
 
-document.getElementById("btn1").onclick = function() {
+document.getElementById("elemento1").onclick = function() {
     comprar(0);
 }
 
