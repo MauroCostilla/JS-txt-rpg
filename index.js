@@ -1,5 +1,6 @@
-
 //inventario
+
+
 
 let espiritu = 0;
 
@@ -27,9 +28,24 @@ const yokai = {
 
 //botones de produccion
 
+document.getElementById("guardar").onclick = function() {
+    localStorage.setItem("espiritu",espiritu);
+    localStorage.setItem("inventario",inventario);
+    localStorage.setItem("precios",precioProduccion);
+}
+
 
 document.getElementById("elemento1").onclick = function() {
     comprar(0);
+}
+document.getElementById("elemento2").onclick = function() {
+    comprar(1);
+}
+document.getElementById("elemento3").onclick = function() {
+    comprar(2);
+}
+document.getElementById("elemento4").onclick = function() {
+    comprar(3);
 }
 
 
@@ -50,6 +66,8 @@ document.getElementById("imagen").onclick = function(){
             inventario[objeto]++;
 
             espiritu -= precioProduccion[objeto];
+
+            precioProduccion[objeto] += precioProduccion[objeto]*(50/100);  
         }
         else{
             alert("no tenes suficiente espiritu")
@@ -75,6 +93,11 @@ function producir() {
 function render(){
     document.getElementById("contador").innerHTML = espiritu;
     document.getElementById("inventario").innerHTML = inventario;
+    document.getElementById("elemento1").innerHTML= precioProduccion[0]
+    document.getElementById("elemento2").innerHTML= precioProduccion[1]
+    document.getElementById("elemento3").innerHTML= precioProduccion[2]
+    document.getElementById("elemento4").innerHTML= precioProduccion[3]
+    
 }
 
 
@@ -88,3 +111,9 @@ setInterval(function(){
     producir()
 
 },1000/FPS);
+
+//-----------
+
+ 
+
+
