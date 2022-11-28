@@ -1,6 +1,21 @@
+
+window.onload = load
+
+
+
+//storage  (por ahora quiero hacer uno para saber si está bien)
+
+function load(){
+    if (localStorage.getItem("espiritu")){
+        espiritu = JSON.parse(localStorage.getItem("espiritu"))
+    }
+    else{
+        espiritu = 0;
+    }
+
+}
+
 //inventario
-
-
 
 let espiritu = 0;
 
@@ -29,7 +44,7 @@ const yokai = {
 //botones de produccion
 
 document.getElementById("guardar").onclick = function() {
-    localStorage.setItem("espiritu",espiritu);
+    localStorage.setItem("espiritu",JSON.stringify(espiritu) );
     localStorage.setItem("inventario",inventario);
     localStorage.setItem("precios",precioProduccion);
 }
