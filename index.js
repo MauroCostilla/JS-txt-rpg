@@ -144,7 +144,7 @@ function producir() {
 
 function render(){
     document.getElementById("contador").innerHTML = Math.trunc(espiritu);
-    document.getElementById("inventario").innerHTML = inventario;
+    document.getElementById("inventario").innerHTML = "Inventario "+inventario+""; 
     document.getElementById("elemento1").innerHTML= precioProduccion[0]
     document.getElementById("elemento2").innerHTML= precioProduccion[1]
     document.getElementById("elemento3").innerHTML= precioProduccion[2]
