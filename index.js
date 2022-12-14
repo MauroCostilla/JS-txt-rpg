@@ -3,14 +3,17 @@ window.onload = load
 
 
 
-//storage  (por ahora quiero hacer uno para saber si está bien)
+//storage  
 
 function load(){
     if (localStorage.getItem("espiritu")){
         espiritu = JSON.parse(localStorage.getItem("espiritu"))
+        inventario= JSON.parse(localStorage.getItem("inventario"))
+        precioProduccion= JSON.parse(localStorage.getItem("precioProduccion"))
     }
     else{
         espiritu = 0;
+        
     }
 
 }
@@ -21,7 +24,7 @@ let espiritu = 0;
 
 let inventario = [0,0,0,0,0,0];
 
-let inventarioProduccion = [1,10,15,20,25,30];
+let inventarioProduccion = [0.1,0.5,1,3,10,15];
 
 let precioProduccion = [50,100,150,200,250,300];
 
@@ -45,8 +48,20 @@ const yokai = {
 
 document.getElementById("guardar").onclick = function() {
     localStorage.setItem("espiritu",JSON.stringify(espiritu) );
-    localStorage.setItem("inventario",inventario);
-    localStorage.setItem("precios",precioProduccion);
+    localStorage.setItem("precioProduccion",JSON.stringify(precioProduccion) );
+    localStorage.setItem("inventario",JSON.stringify(inventario) );
+    Toastify({
+
+        text: "Guardado con éxito",
+        
+        duration: 2000,
+
+        style: {
+            background: "blue",
+          },
+        
+        }).showToast();
+    
 }
 
 
@@ -80,12 +95,34 @@ document.getElementById("imagen").onclick = function(){
             
             inventario[objeto]++;
 
+            Toastify({
+
+                text: "Compra realizada!",
+                
+                duration: 2000,
+
+                style: {
+                    background: "green",
+                  },
+                
+                }).showToast();
+
             espiritu -= precioProduccion[objeto];
 
             precioProduccion[objeto] += precioProduccion[objeto]*(50/100);  
         }
         else{
-            alert("no tenes suficiente espiritu")
+            Toastify({
+
+                text: "No tienes suficiente espiritu",
+                
+                duration: 2000,
+
+                style: {
+                    background: "red",
+                  },
+                
+                }).showToast();
         }
  
         
@@ -106,7 +143,7 @@ function producir() {
 //contador
 
 function render(){
-    document.getElementById("contador").innerHTML = espiritu;
+    document.getElementById("contador").innerHTML = Math.trunc(espiritu);
     document.getElementById("inventario").innerHTML = inventario;
     document.getElementById("elemento1").innerHTML= precioProduccion[0]
     document.getElementById("elemento2").innerHTML= precioProduccion[1]
