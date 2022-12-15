@@ -164,17 +164,17 @@ setInterval(function(){
 
     render();
     producir()
-
-    
-},1000/FPS);
-
-//-----------
-
 fetch("https://criptoya.com/api/dolar")
     .then(response => response.json () )
     .then (({solidario,oficial,blue}) =>{
         document.getElementById('dolar').innerHTML = `oficial ${oficial} - Solidario: ${solidario} - blue: ${blue}`
     })
+    
+},1000/FPS);
+
+//-----------
+
+
     
 
 
