@@ -2,6 +2,9 @@
 window.onload = load
 
 
+//api para el trabajo final.-
+
+
 
 //storage  
 
@@ -145,10 +148,10 @@ function producir() {
 function render(){
     document.getElementById("contador").innerHTML = Math.trunc(espiritu);
     document.getElementById("inventario").innerHTML = "Inventario "+inventario+""; 
-    document.getElementById("elemento1").innerHTML= precioProduccion[0]
-    document.getElementById("elemento2").innerHTML= precioProduccion[1]
-    document.getElementById("elemento3").innerHTML= precioProduccion[2]
-    document.getElementById("elemento4").innerHTML= precioProduccion[3]
+    document.getElementById("elemento1").innerHTML= Math.trunc(precioProduccion[0])
+    document.getElementById("elemento2").innerHTML= Math.trunc(precioProduccion[1])
+    document.getElementById("elemento3").innerHTML= Math.trunc(precioProduccion[2])
+    document.getElementById("elemento4").innerHTML= Math.trunc(precioProduccion[3])
     
 }
 
@@ -162,10 +165,19 @@ setInterval(function(){
     render();
     producir()
 
+    fetch("https://criptoya.com/api/dolar")
+    .then(response => response.json () )
+    .then (({solidario,oficial,blue}) =>{ 
+    document.getElementById('dolar').innerHTML = `oficial ${oficial} - Solidario: ${solidario} - blue: ${blue}`
+
+    } ) 
+
 },1000/FPS);
 
 //-----------
 
- 
+
+
+
 
 
